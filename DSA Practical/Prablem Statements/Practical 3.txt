@@ -1,0 +1,1 @@
+Aim:Demonstrate the devide and concure method for merge sort along with its time complexity anlysis

@@ -1,0 +1,5 @@
+design and implement the binary search tree for various operations:
+Traversal
+search
+insert
+delete
