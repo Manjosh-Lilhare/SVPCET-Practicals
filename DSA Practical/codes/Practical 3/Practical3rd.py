@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Define the folder path where C++ creates files
-folder_path = r"C:\Users\lilha\OneDrive\Pictures\Desktop\SVPCET Practical\DSA Practical\codes\Practical 3\test"
+folder_path = r"C:\Users\lilha\OneDrive\Pictures\Desktop\SVPCET Practicals\DSA Practical\codes\Practical 3\test"
 
 # Check if the folder exists
 if not os.path.exists(folder_path):

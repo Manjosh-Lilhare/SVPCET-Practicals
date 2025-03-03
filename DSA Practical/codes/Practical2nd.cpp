@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <queue>
+
 using namespace std;
 #define vi vector<int>
 #define vvi vector<vi>
@@ -14,12 +16,52 @@ const int N = 1e5 + 2, MOD = 1e9 + 7;
 // public:
 // vector<vector<int>> adjm(n+1,vector<int>ex(n+1,0));
 // };
-int DFT(){
-    // Code of Depth First Traversal
+void DFS(int node, vector<vector<int>>& adjm, vector<bool>& visited) {
+    visited[node] = true;
+    cout << node << " ";
+
+    for (int i = 1; i < adjm.size(); i++) {
+        if (adjm[node][i] == 1 && !visited[i]) {
+            DFS(i, adjm, visited);
+        }
+    }
 }
-int BFT(){
-    // Code of Breadth First Traversal
+
+void DFT(vector<vector<int>>& adjm) {
+
+    int startNode;
+    cout << "Enter the starting node for DFS: ";
+    cin >> startNode;
+
+    vector<bool> visited(adjm.size(), false);
+    DFS(startNode, adjm, visited);
 }
+
+void BFT(vector<vector<int>>& adjm) {
+
+    int startNode;
+    cout << "Enter the starting node for BFS: ";
+    cin >> startNode;
+
+    vector<bool> visited(adjm.size(), false);
+    queue<int> q;
+    visited[startNode] = true;
+    q.push(startNode);
+
+    while (!q.empty()) {
+        int node = q.front();
+        q.pop();
+        cout << node << " ";
+
+        for (int i = 1; i < adjm.size(); i++) {
+            if (adjm[node][i] == 1 && !visited[i]) {
+                visited[i] = true;
+                q.push(i);
+            }
+        }
+    }
+}
+
 signed main()
 {
     int n, m, z; // here {n} is number of nodes and {m} is nuuumber of edges
@@ -29,8 +71,8 @@ signed main()
     vvi adjm(n + 1, vi(n + 1, 0));
     // cout<<"Now enter the Edges"<<endl;
     cout << "Enter your type" << endl
-         << "1.For directed graph" << endl
-         << "2.For undirected graph";
+         << "1.For directed graph [1]" << endl
+         << "2.For undirected graph [0]"<<endl;
     cin >> z;
     if (z == 1)
     {
@@ -85,7 +127,23 @@ signed main()
             cout << endl;
         }
     }
-    // Code of adjecency matrix end
+
+    cout << "Choose the traversal method:" << endl;
+    cout << "1. Depth First Traversal (DFS)" << endl;
+    cout << "2. Breadth First Traversal (BFS)" << endl;
+    int choice;
+    cin >> choice;
+
+    if (choice == 1) {
+    DFT(adjm);
+
+    } else if (choice == 2) {
+    BFT(adjm);
+
+    } else {
+        cout << "Invalid choice!" << endl;
+    }
+
     // Code of adjecency list start
 
     // vi adjl(n+1);
