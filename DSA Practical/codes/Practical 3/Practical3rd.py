@@ -20,7 +20,7 @@ for file in file_names:
 
     with open(file_path, "r") as f:
         content = f.read().strip()
-        
+            
         try:
             times_list = ast.literal_eval(content)  # Convert string to list safely
             execution_times.append(times_list)
