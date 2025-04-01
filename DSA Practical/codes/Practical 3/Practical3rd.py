@@ -43,7 +43,7 @@ for idx, times in enumerate(execution_times):
 plt.xlabel("Input Size (n)")
 plt.ylabel("Execution Time (ns)")
 plt.title("Merge Sort Execution Time for Different Test Cases")
-plt.xscale("log")  # Log scale for better visualization
+# plt.xscale()  # Log scale for better visualization
 plt.legend()
 plt.grid(True)
 
