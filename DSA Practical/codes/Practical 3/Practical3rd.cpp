@@ -82,6 +82,8 @@ void mergesort(vi &arr, int st, int end)
         merge(arr, st, mid, end);
     }
 }
+// Partition function
+
 int main()
 {
     string folder_name = "test";

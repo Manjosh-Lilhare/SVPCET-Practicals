@@ -16,7 +16,7 @@ df_cleaned = df.dropna(subset=['AverageTemperature'])
 
 # 1. Temperature Trends Over Time for Different Regions (Line Plot)
 plt.figure(figsize=(12, 6))
-sns.lineplot(data=df_cleaned, x='Year', y='AverageTemperature', hue='Country', legend=False)
+sns.scatterplot(data=df_cleaned, x='Year', y='AverageTemperature', hue='Country', legend=False)
 plt.title('Temperature Trends Over Time')
 plt.xlabel('Year')
 plt.ylabel('Temperature (°C)')
@@ -56,10 +56,10 @@ if 'Precipitation' in df.columns and not df['Precipitation'].isna().all():
 
 # 5. Heatmap of Correlations Between Climate Factors
 climate_factors = df_cleaned[['AverageTemperature']].copy()
-if 'Precipitation' in df.columns:
-    climate_factors['Precipitation'] = df['Precipitation']
+if 'AverageTemperatureUncertainty' in df.columns:
+    climate_factors['AverageTemperatureUncertainty'] = df['AverageTemperatureUncertainty']
 plt.figure(figsize=(8, 6))
-sns.heatmap(climate_factors.corr(), annot=True, cmap='coolwarm', linewidths=0.5)
+sns.heatmap(climate_factors.corr(), annot=True, cmap='coolwarm', linewidths=1.0)
 plt.title('Correlation Heatmap of Climate Factors')
 plt.show()
 
